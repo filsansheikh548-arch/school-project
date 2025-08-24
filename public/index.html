@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22>✨</text></svg>" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ec4899" />
+    <meta name="description" content="Glamify - Premium beauty products for the modern woman. Discover makeup, skincare, fragrance, and hair care essentials." />
+    <meta name="keywords" content="beauty, makeup, skincare, cosmetics, fragrance, hair care, glamify" />
+    <meta name="author" content="Glamify Beauty Store" />
+    
+    <!-- Open Graph Meta Tags for Social Sharing -->
+    <meta property="og:title" content="Glamify - Premium Beauty Products" />
+    <meta property="og:description" content="Discover your beauty with our premium collection of makeup, skincare, and beauty essentials." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=1200&h=630&fit=crop" />
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Glamify - Premium Beauty Products" />
+    <meta name="twitter:description" content="Discover your beauty with our premium collection of makeup, skincare, and beauty essentials." />
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=1200&h=630&fit=crop" />
+    
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22>✨</text></svg>" />
+    
+    <!-- Manifest -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Config -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'glamify-pink': '#ec4899',
+              'glamify-purple': '#8b5cf6',
+              'glamify-gradient': 'linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%)'
+            },
+            fontFamily: {
+              'glamify': ['Inter', 'system-ui', 'sans-serif']
+            },
+            animation: {
+              'float': 'float 3s ease-in-out infinite',
+              'glow': 'glow 2s ease-in-out infinite alternate',
+              'shimmer': 'shimmer 2s linear infinite'
+            },
+            keyframes: {
+              float: {
+                '0%, 100%': { transform: 'translateY(0px)' },
+                '50%': { transform: 'translateY(-10px)' }
+              },
+              glow: {
+                'from': { boxShadow: '0 0 20px #ec4899' },
+                'to': { boxShadow: '0 0 30px #8b5cf6, 0 0 40px #ec4899' }
+              },
+              shimmer: {
+                '0%': { backgroundPosition: '-200% 0' },
+                '100%': { backgroundPosition: '200% 0' }
+              }
+            }
+          }
+        }
+      }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Additional Meta for Performance -->
+    <link rel="dns-prefetch" href="//images.unsplash.com">
+    <link rel="preconnect" href="https://images.unsplash.com">
+    
+    <title>Glamify ✨ - Premium Beauty Products & Cosmetics</title>
+    
+    <style>
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      
+      ::-webkit-scrollbar-track {
+        background: #f1f5f9;
+      }
+      
+      ::-webkit-scrollbar-thumb {
+        background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);
+        border-radius: 10px;
+      }
+      
+      ::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(135deg, #db2777 0%, #7c3aed 100%);
+      }
+      
+      /* Loading animation */
+      .loading-shimmer {
+        background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+        background-size: 200% 100%;
+        animation: shimmer 1.5s infinite;
+      }
+      
+      /* Smooth focus styles */
+      *:focus {
+        outline: 2px solid #ec4899;
+        outline-offset: 2px;
+      }
+      
+      /* Root styles */
+      html {
+        scroll-behavior: smooth;
+      }
+      
+      body {
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        background: linear-gradient(135deg, #fdf2f8 0%, #ffffff 50%, #f3e8ff 100%);
+        min-height: 100vh;
+      }
+      
+      /* Prevent flash of unstyled content */
+      .no-js body {
+        visibility: hidden;
+      }
+      
+      /* Loading screen */
+      #loading-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        transition: opacity 0.5s ease-out;
+      }
+      
+      #loading-screen.fade-out {
+        opacity: 0;
+        pointer-events: none;
+      }
+      
+      .loading-spinner {
+        width: 50px;
+        height: 50px;
+        border: 4px solid rgba(255, 255, 255, 0.3);
+        border-top: 4px solid white;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+      
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+    </style>
+  </head>
+  <body class="antialiased">
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+      <div class="text-center">
+        <div class="loading-spinner mx-auto mb-4"></div>
+        <h2 class="text-white text-xl font-bold">✨ Loading Glamify...</h2>
+      </div>
+    </div>
+    
+    <!-- Main App Container -->
+    <div id="root"></div>
+    
+    <!-- Loading Script -->
+    <script>
+      // Hide loading screen when page loads
+      window.addEventListener('load', function() {
+        const loadingScreen = document.getElementById('loading-screen');
+        setTimeout(() => {
+          loadingScreen.classList.add('fade-out');
+          setTimeout(() => {
+            loadingScreen.style.display = 'none';
+          }, 500);
+        }, 1000); // Show loading for at least 1 second
+      });
+      
+      // Remove no-js class
+      document.documentElement.classList.remove('no-js');
+    </script>
+    
+    <!-- Performance monitoring -->
+    <script>
+      // Simple performance monitoring
+      if ('performance' in window) {
+        window.addEventListener('load', function() {
+          setTimeout(function() {
+            const perfData = performance.getEntriesByType('navigation')[0];
+            console.log('✨ Glamify loaded in:', Math.round(perfData.loadEventEnd - perfData.fetchStart), 'ms');
+          }, 0);
+        });
+      }
+    </script>
+  </body>
+</html>
